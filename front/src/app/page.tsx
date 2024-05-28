@@ -1,14 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { Pagination } from '@mui/material'
-import BlogPreview from '@/components/BlogPreview'
-
-interface IPostItem {
-  data: IPostMeta
-  content: string
-  slug: string
-}
+import PostList, { type IPostItem } from '@/components/PostPreviewList'
 
 async function getPosts() {
   const fileList = await fs.promises.readdir(path.join(process.cwd(), 'posts'))
@@ -32,12 +25,7 @@ export default async function Home() {
   return (
     <main className='flex-1 overflow-auto mt-10 pb-10'>
       <div className='px-6'>
-        <div>
-          {posts.map(({ data, content, slug }) => (
-            <BlogPreview key={data.ctime} slug={slug} {...data} content={content} />
-          ))}
-        </div>
-        <Pagination count={10} color='primary' classes={{ ul: 'justify-center' }} />
+        <PostList posts={posts} />
       </div>
     </main>
   )
