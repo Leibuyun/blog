@@ -25,6 +25,23 @@
   }
 }
 
+.alert-container {
+  position: absolute;
+  transform: translateX(-50%);
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes slide-up-fade-out {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50px);
+    opacity: 0;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

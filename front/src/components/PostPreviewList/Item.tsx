@@ -1,8 +1,6 @@
 import React from 'react'
-import Markdown from 'react-markdown'
 import Link from 'next/link'
-import rehypeHighlight from 'rehype-highlight'
-import remarkGfm from 'remark-gfm'
+import MarkdownComponent from '../common/Markdown'
 
 type Props = {
   slug: string
@@ -19,14 +17,7 @@ export default function PreviewItem({ slug, title, ctime, content, tags }: Props
         {title}
       </Link>
       <div className='text-center text-sm text-gray-500 select-none'>{ctime}</div>
-      <Markdown
-        skipHtml={true}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
-        className='markdown-wrapper github-light-wrapper self-start'
-      >
-        {content}
-      </Markdown>
+      <MarkdownComponent content={content} />
       <Link href={`/posts/${slug}`} className='load-more-btn rounded-sm text-white'>
         查看更多
       </Link>

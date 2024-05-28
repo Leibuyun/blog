@@ -1,10 +1,8 @@
 import React from 'react'
-import Markdown from 'react-markdown'
 import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
-import rehypeHighlight from 'rehype-highlight'
-import remarkGfm from 'remark-gfm'
+import MarkdownComponent from '@/components/common/Markdown'
 
 type Props = {
   params: {
@@ -13,7 +11,6 @@ type Props = {
   }
 }
 
-// export const dynamic = 'force-dynamic'
 export const dynamic = 'error'
 export const dynamicParams = false
 
@@ -35,14 +32,7 @@ export default async function BlogDetail({ params }: Props) {
   const { data, content } = await getPostData(slug)
   return (
     <div className='flex-1 overflow-auto mt-10'>
-      <Markdown
-        skipHtml={true}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
-        className='markdown-wrapper github-light-wrapper'
-      >
-        {content}
-      </Markdown>
+      <MarkdownComponent content={content} />
     </div>
   )
 }
