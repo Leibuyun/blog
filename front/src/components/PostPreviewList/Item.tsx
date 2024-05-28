@@ -23,7 +23,7 @@ export default function PreviewItem({ slug, title, ctime, content, tags }: Props
         skipHtml={true}
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
-        className='markdown-wrapper github-light-wrapper'
+        className='markdown-wrapper github-light-wrapper self-start'
       >
         {content}
       </Markdown>

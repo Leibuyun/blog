@@ -212,4 +212,12 @@
   blockquote p {
     display: inline; /* Ensures that paragraphs inside the blockquote are styled correctly */
   }
+
+  p > code {
+    background-color: #33383d;
+    color: #fff;
+    padding: 4px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
 }
