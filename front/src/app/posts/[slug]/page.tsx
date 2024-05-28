@@ -5,19 +5,12 @@ import fs from 'fs'
 import path from 'path'
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm'
-import './github-light.css'
-import './markdown.css'
 
 type Props = {
   params: {
     slug: string
     content: string
   }
-}
-
-interface JsonData {
-  id: string
-  name: string
 }
 
 // export const dynamic = 'force-dynamic'
@@ -43,7 +36,7 @@ export default async function BlogDetail({ params }: Props) {
   return (
     <div className='flex-1 overflow-auto mt-10'>
       <Markdown
-        skipHtml={false}
+        skipHtml={true}
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
         className='markdown-wrapper github-light-wrapper'
