@@ -1,0 +1,215 @@
+.markdown-wrapper {
+  /* 标题 */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #0f1214;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 10px 0;
+    font-size: 36px;
+  }
+
+  h2 {
+    margin: 40px 0 4px;
+    font-size: 26px;
+  }
+
+  h3 {
+    margin: 24px 0 4px;
+    font-size: 24px;
+  }
+
+  h4 {
+    margin: 20px 0 6px;
+    font-size: 20px;
+  }
+
+  h5 {
+    margin: 20px 0 6px;
+    font-size: 14px;
+  }
+
+  h6 {
+    margin: 20px 0 6px;
+    font-size: 12px;
+  }
+
+  /* 段落 */
+  p {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  /* 表格 */
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  thead {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+
+    th {
+      padding: 12px 15px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    td {
+      padding: 12px 15px;
+    }
+  }
+
+  /* 表格边框 */
+  table,
+  th,
+  td {
+    border: 1px solid #dddddd;
+  }
+
+  ol,
+  ul {
+    margin: 20px 0;
+  }
+
+  /* 有序列表 */
+  ol {
+    counter-reset: list-counter;
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      counter-increment: list-counter;
+      position: relative;
+      padding-left: 24px;
+      word-break: break-all;
+      padding: 10px 0 10px 30px;
+    }
+
+    li::before {
+      content: counter(list-counter) '. ';
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      /* transform: translateY(-50%); */
+      font-weight: bold;
+      color: #0f1214;
+      font-size: 16px;
+    }
+  }
+
+  ol li:hover {
+    background-color: #f1f1f1;
+    transition: all 0.3s ease;
+  }
+
+  /* 无序列表 */
+  ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding: 10px 0 10px 30px;
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  ul li::before {
+    content: '•';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3498db;
+    font-size: 24px;
+  }
+
+  ul li:hover {
+    background-color: #f0f8ff;
+  }
+
+  /* 任务列表 */
+  .contains--task-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .contains-task-list li::before {
+    content: '';
+  }
+
+  .contains-task-list li {
+    padding: 10px;
+  }
+
+  .contains-task-list input[type='checkbox'] {
+    margin-right: 15px;
+    transform: scale(1.2);
+  }
+
+  .contains-task-list input[type='checkbox']:checked + label {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  /* 引言 */
+  blockquote {
+    margin: 1.5em 10px; /* Adjust the margin as needed */
+    padding: 0.5em 10px; /* Adjust the padding as needed */
+    border-left: 5px solid #ccc; /* Add a left border */
+    background: #f9f9f9; /* Background color for the blockquote */
+    color: #555; /* Text color */
+    font-style: italic; /* Italicize the text */
+    quotes: '“' '”' '‘' '’'; /* Define the quotation marks */
+  }
+
+  blockquote:before {
+    content: open-quote; /* Add the opening quotation mark */
+    font-size: 2em; /* Adjust the size of the quotation mark */
+    line-height: 0.1em; /* Adjust the line height */
+    margin-right: 10px; /* Adjust the space between the quote mark and the text */
+    vertical-align: -0.4em; /* Adjust the vertical alignment */
+    color: #ccc; /* Color of the quotation mark */
+  }
+
+  blockquote:after {
+    content: close-quote; /* Add the closing quotation mark */
+    font-size: 2em; /* Adjust the size of the quotation mark */
+    line-height: 0.1em; /* Adjust the line height */
+    margin-left: 10px; /* Adjust the space between the quote mark and the text */
+    vertical-align: -0.4em; /* Adjust the vertical alignment */
+    color: #ccc; /* Color of the quotation mark */
+  }
+
+  blockquote p {
+    display: inline; /* Ensures that paragraphs inside the blockquote are styled correctly */
+  }
+}
