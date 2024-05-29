@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, ReactNode } from 'react'
 import Markdown from 'react-markdown'
 import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import CopyBtn from './CopyBtn'
 
@@ -27,7 +28,7 @@ export default function MarkdownComponent({ content }: Props) {
     <Markdown
       skipHtml={true}
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeHighlight]}
+      rehypePlugins={[rehypeHighlight, rehypeSlug]}
       components={{
         code({ className = '', children, ...props }) {
           const isHighlight = className.includes('hljs')

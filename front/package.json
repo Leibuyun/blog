@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node scripts/copyImages.cjs",
     "build": "next build",
+    "prebuild": "node scripts/copyImages.cjs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,6 +15,7 @@
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.13",
     "@mui/material": "^5.15.18",
+    "@mui/x-tree-view": "^7.5.1",
     "classnames": "^2.5.1",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.9.0",
@@ -21,9 +24,17 @@
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
+    "rehype": "^13.0.1",
+    "rehype-document": "^7.0.3",
     "rehype-highlight": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.0",
     "remark-gfm": "^4.0.0",
-    "sharp": "^0.33.4"
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "sharp": "^0.33.4",
+    "to-vfile": "^8.0.0",
+    "unified": "^11.0.4"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -3,6 +3,8 @@ import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
 import MarkdownComponent from '@/components/common/Markdown'
+import Summary from './summary'
+import { getTree } from './util'
 
 type Props = {
   params: {
@@ -30,9 +32,18 @@ async function getPostData(slug: string) {
 export default async function BlogDetail({ params }: Props) {
   const { slug } = params
   const { data, content } = await getPostData(slug)
+  const tree = await getTree(content)
+
   return (
     <div className='flex-1 overflow-auto mt-10'>
-      <MarkdownComponent content={content} />
+      <div className='flex gap-4'>
+        <div className='w-64'>
+          <Summary tree={tree} />
+        </div>
+        <div className='flex-1'>
+          <MarkdownComponent content={content} />
+        </div>
+      </div>
     </div>
   )
 }
