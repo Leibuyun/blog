@@ -53,5 +53,5 @@ export default function Summary({ tree }: Props) {
     }
   }, [])
 
-  return <SimpleTreeView>{tree.map((item) => renderTree(item))}</SimpleTreeView>
+  return <SimpleTreeView className='bg-[#f3f6f6]'>{tree.map((item) => renderTree(item))}</SimpleTreeView>
 }
