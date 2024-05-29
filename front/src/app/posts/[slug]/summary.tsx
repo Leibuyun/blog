@@ -7,6 +7,7 @@ import { TreeItem } from '@mui/x-tree-view'
 type ITreeProps = {
   label: string
   targetId: string
+  parent?: ITreeProps
   children?: ITreeProps[]
 }
 
@@ -15,17 +16,42 @@ type Props = {
 }
 
 function renderTree(item: ITreeProps) {
+  const handleAnchorClick = () => {
+    document.getElementById(item.targetId)?.scrollIntoView()
+    // 替换url
+    window.history.pushState(null, '', `#${item.targetId}`)
+  }
+
   return (
-    <TreeItem itemId={item.targetId} label={item.label} key={item.targetId}>
-      {item.children?.map((child) => renderTree(child))}
+    <TreeItem
+      onClick={handleAnchorClick}
+      itemId={item.targetId}
+      label={item.label}
+      // label={
+      //   <a href={`#${item.targetId}`} className='inline-block w-full'>
+      //     {item.label}
+      //   </a>
+      // }
+      key={item.targetId}
+    >
+      {item.children?.map((child: any) => renderTree(child))}
     </TreeItem>
   )
 }
 
 export default function Summary({ tree }: Props) {
   useEffect(() => {
-    console.log(tree)
-  }, [tree])
+    const handleHashChange = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1))
+      document.getElementById(id)?.scrollIntoView()
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
 
   return <SimpleTreeView>{tree.map((item) => renderTree(item))}</SimpleTreeView>
 }

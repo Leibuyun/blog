@@ -35,12 +35,12 @@ export default async function BlogDetail({ params }: Props) {
   const tree = await getTree(content)
 
   return (
-    <div className='flex-1 overflow-auto mt-10'>
-      <div className='flex gap-4'>
-        <div className='w-64'>
+    <div className='flex-1 mt-10 min-h-0'>
+      <div className='flex gap-4 h-full'>
+        <div className='w-64 sticky top-0'>
           <Summary tree={tree} />
         </div>
-        <div className='flex-1'>
+        <div className='flex-1 overflow-auto'>
           <MarkdownComponent content={content} />
         </div>
       </div>
