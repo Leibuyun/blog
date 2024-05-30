@@ -1,7 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import Main from './main'
-import 'react-tooltip/dist/react-tooltip.css'
+import kIcons from '@/assets/k-icons/meta.json'
 
 type Props = {}
 
@@ -12,7 +12,7 @@ const tabs = [
   },
   {
     key: 'svg-icons',
-    label: '图标库',
+    label: `图标库(${kIcons.length})`,
   },
   {
     key: 'test',

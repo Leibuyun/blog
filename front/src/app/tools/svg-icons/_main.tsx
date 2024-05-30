@@ -2,7 +2,6 @@
 
 import React, { forwardRef, useEffect, useState } from 'react'
 import { VirtuosoGrid } from 'react-virtuoso'
-// import { Tooltip } from 'react-tooltip'
 import { TextField, Tooltip } from '@mui/material'
 import SvgItem from './_SvgItem'
 import type { KIconProps } from './_SvgItem'
@@ -35,7 +34,12 @@ export default function Main({ icons }: Props) {
 
   useEffect(() => {
     if (searchText.length > 0) {
-      setItems((pre) => pre.filter((item) => item.searchText?.includes(searchText) || item.name.includes(searchText)))
+      setItems((pre) =>
+        pre.filter(
+          (item) =>
+            item.searchText?.includes(searchText) || item.tags.includes(searchText) || item.name.includes(searchText)
+        )
+      )
     } else {
       setItems(icons)
     }
@@ -54,7 +58,7 @@ export default function Main({ icons }: Props) {
       <div className='flex-1 overflow-auto'>
         <VirtuosoGrid
           totalCount={items.length}
-          components={gridComponents}
+          components={gridComponents as any}
           itemContent={(index) => (
             <Tooltip title={items[index].desc}>
               <div>

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import kIcons from '@/assets/k-icons/meta.json'
 import Main from './_main'
 import type { KIconProps } from './_SvgItem'

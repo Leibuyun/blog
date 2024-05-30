@@ -5,7 +5,7 @@ import { Pagination } from '@mui/material'
 import BlogPreview from './Item'
 
 export interface IPostItem {
-  data: IPostMeta
+  data: IPostMetaData
   content: string
   slug: string
 }

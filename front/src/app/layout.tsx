@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import classNames from 'classnames'
-import Header from '@/components/Header'
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
@@ -27,7 +26,6 @@ export default function RootLayout({
       <body
         className={classNames(inter.className, 'h-screen max-w-desktop flex flex-col overflow-hidden desktop:m-auto')}
       >
-        <Header />
         {children}
       </body>
     </html>

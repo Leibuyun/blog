@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import PostList, { type IPostItem } from '@/components/PostPreviewList'
+import Header from '@/components/Header'
+import SearchBlog from '@/components/Header/SearchBlog'
 
 async function getPosts() {
   const fileList = await fs.promises.readdir(path.join(process.cwd(), 'posts'))
@@ -14,7 +16,7 @@ async function getPosts() {
     const { data, content } = matter(metaData)
     const idx = content.indexOf('<!-- more -->')
     blogList.push({
-      data,
+      data: data as IPostMetaData,
       slug: fileName.replace(/\.md$/, ''),
       content: idx === -1 ? content : content.slice(0, idx),
     } as any)
@@ -26,10 +28,15 @@ async function getPosts() {
 export default async function Home() {
   const posts = await getPosts()
   return (
-    <main className='flex-1 overflow-auto mt-10 pb-10'>
-      <div className='px-6'>
-        <PostList posts={posts} />
-      </div>
-    </main>
+    <>
+      <Header>
+        <SearchBlog posts={posts} />
+      </Header>
+      <main className='flex-1 overflow-auto mt-10 pb-10'>
+        <div className='px-6'>
+          <PostList posts={posts} />
+        </div>
+      </main>
+    </>
   )
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined'
 import { copyText, downloadFile } from '@/utils'
 import useAlert from '@/hooks/useAlert'
-import { Tooltip } from '@mui/material'
 
 export type KIconProps = {
   id: number
@@ -50,9 +49,7 @@ export default function SvgItem(props: Props) {
         ></div>
       </div>
       <div className='flex flex-col gap-2 flex-1'>
-        <Tooltip title={item.description}>
-          <div className='text-sm'>{item.tags[0]}</div>
-        </Tooltip>
+        <div className='text-sm'>{item.tags[0]}</div>
         <div className='text-gray-500 text-xs'>{item.name}</div>
       </div>
       <div
