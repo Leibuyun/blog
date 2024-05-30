@@ -3,6 +3,7 @@
 import { ReactNode, useCallback } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import useAlert from '@/hooks/useAlert'
+import { copyText } from '@/utils'
 
 type Props = {
   node: ReactNode
@@ -24,7 +25,7 @@ export default function CopyBtn({ node }: Props) {
   const handleCopy = useCallback(async () => {
     try {
       const text = getNodeText(node)
-      await navigator.clipboard.writeText(text)
+      await copyText(text)
       showAlert({ message: '复制成功', type: 'success', duration: 1000 })
       console.log('复制成功')
     } catch (err) {

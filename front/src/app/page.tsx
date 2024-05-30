@@ -7,7 +7,10 @@ async function getPosts() {
   const fileList = await fs.promises.readdir(path.join(process.cwd(), 'posts'))
   const blogList: IPostItem[] = []
   for (const fileName of fileList) {
-    const metaData = await fs.promises.readFile(path.join(process.cwd(), `posts/${fileName}`), 'utf-8')
+    const absPath = path.join(process.cwd(), `posts/${fileName}`)
+    const stat = await fs.promises.stat(absPath)
+    if (stat.isDirectory()) continue
+    const metaData = await fs.promises.readFile(absPath, 'utf-8')
     const { data, content } = matter(metaData)
     const idx = content.indexOf('<!-- more -->')
     blogList.push({
