@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Modal, TextField } from '@mui/material'
+import { Button, Modal, TextField } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 import { useRouter } from 'next/navigation'
 import type { IPostItem } from '../PostPreviewList'
 
@@ -25,7 +26,15 @@ export default function SearchBlog({ posts }: Props) {
 
   return (
     <>
-      <TextField label='搜索博客' variant='outlined' size='small' onClick={() => setVisible(true)} />
+      <Button
+        variant='contained'
+        startIcon={<SearchIcon />}
+        size='medium'
+        style={{ backgroundColor: '#1565c0' }}
+        onClick={() => setVisible(true)}
+      >
+        搜索博客
+      </Button>
       <Modal open={visible} onClose={() => setVisible(false)}>
         <div className='max-w-2xl m-auto mt-80 h-1/2 rounded-3xl border bg-white p-6'>
           <TextField
