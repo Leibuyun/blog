@@ -12,7 +12,7 @@ type Props = {
 
 const gridComponents = {
   // eslint-disable-next-line react/display-name
-  List: forwardRef(({ style, children, ...props }, ref) => (
+  List: forwardRef(({ style, children, ...props }: any, ref) => (
     <div
       ref={ref}
       {...props}
@@ -25,7 +25,7 @@ const gridComponents = {
     </div>
   )),
   // eslint-disable-next-line react/display-name
-  Item: React.forwardRef(({ children, ...props }, ref) => <div {...props}>{children}</div>),
+  Item: React.forwardRef(({ children, ...props }: any, ref) => <div {...props}>{children}</div>),
 }
 
 export default function Main({ icons }: Props) {

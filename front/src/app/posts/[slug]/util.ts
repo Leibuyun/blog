@@ -30,7 +30,7 @@ function parseResult(result: IResultItem[]) {
 
   if (result.length > 0) {
     let currentTag = parseInt(result[0].tag[1])
-    let currentItem = {
+    let currentItem: any = {
       parent: null,
       tag: result[0].tag,
       label: result[0].text,

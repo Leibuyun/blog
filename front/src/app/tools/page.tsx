@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Metadata } from 'next'
 import Main from './main'
 import kIcons from '@/assets/k-icons/meta.json'
@@ -28,7 +28,9 @@ export const metadata: Metadata = {
 export default function Tools({}: Props) {
   return (
     <div className='mt-10 flex-1 flex flex-col min-h-0'>
-      <Main tabs={tabs} />
+      <Suspense>
+        <Main tabs={tabs} />
+      </Suspense>
     </div>
   )
 }
