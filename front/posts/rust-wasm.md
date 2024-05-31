@@ -5,9 +5,7 @@ ctime: 2024-5-31 17:58
 mtime: 2024-5-31 17:58
 ---
 
-
-
-创建rust项目，并将其编译为wasm，掌握最基本的流程✅。但是我参与的项目中，wasm使用的非常少（几乎为0），官网的教程一套走下来，也没觉得wasm有什么特别之处，对性能这部分感受不是很审核😅。后续得写点实际的demo😋。
+创建 rust 项目，并将其编译为 wasm，掌握最基本的流程 ✅。但是我参与的项目中，wasm 使用的非常少（几乎为 0），官网的教程一套走下来，也没觉得 wasm 有什么特别之处，对性能这部分感受不是很深刻 😅。后续得写点实际的 demo😋。
 
 <!-- more -->
 
@@ -49,8 +47,6 @@ crate-type = ["cdylib", "rlib"]
 opt-level = "s"
 ```
 
-
-
 ## 项目构建
 
 ```shell
@@ -72,6 +68,4 @@ import wasm from 'vite-plugin-wasm'
 export default defineConfig({
   plugins: [wasm()],
 })
-
 ```
-
