@@ -20,7 +20,7 @@ mtime: 2024-6-8 17:13
 
 《围住神经猫》是一款益智小游戏，玩家需在9X9的点阵中通过点击把神经猫围在一定区域内。
 
-![image-20240608171829720](./neurocat\image-20240608171829720.png)
+![image-20240608171829720](./neurocat/image-20240608171829720.png)
 
 ## 简单分析
 
@@ -232,7 +232,7 @@ export function bfs(board: boolean[][], x: number, y: number, boardSize: number)
 
 ## 效果图
 
-![动画1](./neurocat\动画1.gif)
+![动画1](./neurocat/动画1.gif)
 
 ## 打包后的html
 
